@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Python Documentation</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Python Documentation</h1>
+      <a href="#" id="btn"><i class="fas fa-bars icon"></i></a>
+    </header>
+    <div class="container">
+      <nav id="navbar">
+        <header class="navbar-header">
+          <span class="title">Python Documentation</span>
+        </header>
+        <ul>
+          <li>
+            <a class="nav-link" href="#python2_or_python3"
+              >Python2 or python3</a
+            >
+          </li>
+          <li><a class="nav-link" href="#getting_python">Getting Python</a></li>
+          <li><a class="nav-link" href="#introduction">Introduction</a></li>
+          <li><a class="nav-link" href="#keywords">keywords</a></li>
+          <li><a class="nav-link" href="#operators">Operators</a></li>
+          <li><a class="nav-link" href="#delimiters">Delimiters</a></li>
+          <li><a class="nav-link" href="#examples">Examples</a></li>
+        </ul>
+      </nav>
+      <main id="main-doc">
+        <section class="main-section" id="python2_or_python3">
+          <header><h2>Python2 or python3</h2></header>
+          <p>
+            Python 3.0 was released in 2008. The final 2.x version 2.7 release
+            came out in mid-2010, with a statement of extended support for this
+            end-of-life release. The 2.x branch will see no new major releases
+            after that. 3.x is under active development and has already seen
+            over five years of stable releases, including version 3.3 in 2012,
+            3.4 in 2014, 3.5 in 2015, and 3.6 in 2016. This means that all
+            recent standard library improvements, for example, are only
+            available by default in Python 3.x.
+          </p>
+          <p>
+            Guido van Rossum (the original creator of the Python language)
+            decided to clean up Python 2.x properly, with less regard for
+            backwards compatibility than is the case for new releases in the 2.x
+            range. The most drastic improvement is the better Unicode support
+            (with all text strings being Unicode by default) as well as saner
+            bytes/Unicode separation.
+          </p>
+          <p>
+            Besides, several aspects of the core language (such as print and
+            exec being statements, integers using floor division) have been
+            adjusted to be easier for newcomers to learn and to be more
+            consistent with the rest of the language, and old cruft has been
+            removed (for example, all classes are now new-style, "range()"
+            returns a memory efficient iterable, not a list as in 2.x).
+          </p>
+          <p>
+            However, the broader Python ecosystem has amassed a significant
+            amount of quality software over the years. The downside of breaking
+            backwards compatibility in 3.x is that some of that software
+            (especially in-house software in companies) still doesn't work on
+            3.x yet.
+          </p>
+        </section>
+        <section class="main-section" id="getting_python">
+          <header><h2>Getting Python</h2></header>
+          <p>
+            Next, install the Python interpreter on your computer. This is the
+            program that reads Python programs and carries out their
+            instructions; you need it before you can do any Python programming.
+            Mac OSX distributions from 10.3 (Panther) and up include a version
+            of Python, which may be suitable for beginning despite being as much
+            as two years out of date. Linux distributions also frequently
+            include Python, which is readily upgraded.
+          </p>
+          <p>
+            See
+            <a href="https://wiki.python.org/moin/BeginnersGuide/Download"
+              >BeginnersGuide/Download</a
+            >
+            for instructions to download the correct version of Python.
+          </p>
+        </section>
+        <section class="main-section" id="introduction">
+          <header><h2>Introduction</h2></header>
+          <p>
+            This reference manual describes the Python programming language. It
+            is not intended as a tutorial.
+          </p>
+          <p>
+            While I am trying to be as precise as possible, I chose to use
+            English rather than formal specifications for everything except
+            syntax and lexical analysis. This should make the document more
+            understandable to the average reader, but will leave room for
+            ambiguities. Consequently, if you were coming from Mars and tried to
+            re-implement Python from this document alone, you might have to
+            guess things and in fact you would probably end up implementing
+            quite a different language. On the other hand, if you are using
+            Python and wonder what the precise rules about a particular area of
+            the language are, you should definitely be able to find them here.
+            If you would like to see a more formal definition of the language,
+            maybe you could volunteer your time — or invent a cloning machine
+            :-).
+          </p>
+          <p>
+            It is dangerous to add too many implementation details to a language
+            reference document — the implementation may change, and other
+            implementations of the same language may work differently. On the
+            other hand, CPython is the one Python implementation in widespread
+            use (although alternate implementations continue to gain support),
+            and its particular quirks are sometimes worth being mentioned,
+            especially where the implementation imposes additional limitations.
+            Therefore, you’ll find short “implementation notes” sprinkled
+            throughout the text.
+          </p>
+          <p>
+            Every Python implementation comes with a number of built-in and
+            standard modules. These are documented in
+            <a href="https://docs.python.org/3/library/index.html#library-index"
+              >The Python Standard Library</a
+            >. A few built-in modules are mentioned when they interact in a
+            significant way with the language definition.
+          </p>
+          <h3>Alternate Implementations</h3>
+          <ul class="introduction-ul">
+            <li>
+              <span><strong>CPython</strong></span>
+              <p>
+                This is the original and most-maintained implementation of
+                Python, written in C. New language features generally appear
+                here first.
+              </p>
+            </li>
+            <li>
+              <span><strong>Jython</strong></span>
+              <p>
+                Python implemented in Java. This implementation can be used as a
+                scripting language for Java applications, or can be used to
+                create applications using the Java class libraries. It is also
+                often used to create tests for Java libraries. More information
+                can be found at the
+                <a href="https://www.jython.org/">Jython website</a>.
+              </p>
+            </li>
+            <li>
+              <span><strong>Python for .NET</strong></span>
+              <p>
+                This implementation actually uses the CPython implementation,
+                but is a managed .NET application and makes .NET libraries
+                available. It was created by Brian Lloyd. For more information,
+                see the
+                <a href="https://pythonnet.github.io/"
+                  >Python for .NET home page</a
+                >.
+              </p>
+            </li>
+            <li>
+              <span><strong>IronPython</strong></span>
+              <p>
+                An alternate Python for .NET. Unlike Python.NET, this is a
+                complete Python implementation that generates IL, and compiles
+                Python code directly to .NET assemblies. It was created by Jim
+                Hugunin, the original creator of Jython. For more information,
+                see the
+                <a href="https://ironpython.net/">IronPython website</a>.
+              </p>
+            </li>
+            <li>
+              <span><strong>PyPy</strong></span>
+              <p>
+                An implementation of Python written completely in Python. It
+                supports several advanced features not found in other
+                implementations like stackless support and a Just in Time
+                compiler. One of the goals of the project is to encourage
+                experimentation with the language itself by making it easier to
+                modify the interpreter (since it is written in Python).
+                Additional information is available on
+                <a href="http://pypy.org/">the PyPy project’s home page</a>.
+              </p>
+            </li>
+          </ul>
+        </section>
+        <section class="main-section" id="keywords">
+          <header><h2>Keywords</h2></header>
+          <p>
+            The following identifiers are used as reserved words, or keywords of
+            the language, and cannot be used as ordinary identifiers. They must
+            be spelled exactly as written here:
+          </p>
+          <pre>
+            <code>
+  False      await      else       import     pass
+  None       break      except     in         raise
+  True       class      finally    is         return
+  and        continue   for        lambda     try
+  as         def        from       nonlocal   while
+  assert     del        global     not        with
+  async      elif       if         or         yield
+            </code>
+          </pre>
+        </section>
+        <section class="main-section" id="operators">
+          <header><h2>Operators</h2></header>
+          <p>The following tokens are operators:</p>
+          <pre>
+            <code>
+  +       -       *       **      /       //      %      @
+  <<      >>      &       |       ^       ~
+  <       >       <=      >=      ==      !=
+            </code>
+          </pre>
+        </section>
+        <section class="main-section" id="delimiters">
+          <header><h2>Delimiters</h2></header>
+          <p>The following tokens serve as delimiters in the grammar:</p>
+          <pre>
+            <code>
+  (       )       [       ]       {       }
+  ,       :       .       ;       @       =       ->
+  +=      -=      *=      /=      //=     %=      @=
+  &=      |=      ^=      >>=     <<=     **=
+            </code>
+          </pre>
+        </section>
+        <section class="main-section" id="examples">
+          <header><h2>Examples</h2></header>
+          <p class="examples-p">The <em>if</em> statement</p>
+          <pre>
+            <code>
+  if_stmt ::= "if" expression ":" suite
+      ("elif" expression ":" suite)*
+      ["else" ":" suite]
+            </code>
+          </pre>
+          <p class="examples-p">The <em>while</em> statement</p>
+          <pre>
+            <code>
+  while_stmt ::= "while" expression ":" suite
+      ["else" ":" suite]
+            </code>
+          </pre>
+          <p class="examples-p">The <em>for</em> statement</p>
+          <pre>
+            <code>
+  for_stmt ::= "for" target_list "in" expression_list ":" suite
+      ["else" ":" suite]
+            </code>
+          </pre>
+        </section>
+      </main>
+    </div>
+    <script src="navbar.js"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
